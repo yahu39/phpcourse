@@ -1,6 +1,8 @@
 <?php
-class BaseElement {
-    protected $title; // no puede ser accedida desde otro archivo, pero si queremos que si sea accedida por hijas, utlizamos protected
+require_once 'Printable.php';
+
+class BaseElement  implements Printable {
+    protected $title; // no puede ser accedida desde otra clase, pero si queremos que si sea accedida por hijas, utlizamos protected
     public $description;
     public $visible = true;
     public $months;
@@ -28,4 +30,8 @@ class BaseElement {
       
         return "$years years $extraMonths months";
     }
-}
+
+    public function getDescription() {
+      return $this->description;
+    }
+} 
